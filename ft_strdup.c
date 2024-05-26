@@ -22,5 +22,6 @@ char	*ft_strdup(char *str)
 		*copy = '\0';
 		return (output);
 	}
-	return ((char *)0);;
+	free(copy);
+	return ((char *)0);
 }

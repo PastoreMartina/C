@@ -8,7 +8,7 @@ int	*ft_range(int min, int max)
 
 	if (min >= max)
 	{
-		return NULL;
+		return (NULL);
 	}
 	size = max - min;
 	array = malloc(size * sizeof(int));
@@ -23,5 +23,6 @@ int	*ft_range(int min, int max)
 		}
 		return (array);
 	}
-	return NULL;
+	free(array);
+	return (NULL);
 }
