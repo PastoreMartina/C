@@ -1,4 +1,16 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpastore <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/23 11:24:27 by mpastore          #+#    #+#             */
+/*   Updated: 2024/05/23 11:24:34 by mpastore         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/*#include <stdio.h>
 
 void	ft_sort_int_tab(int *tab, int size);
 
@@ -21,7 +33,7 @@ int	main(void)
 		j++;
 	}
 	return (0);
-}
+}*/
 
 void	ft_swap(int *a, int *b)
 {
@@ -34,30 +46,22 @@ void	ft_swap(int *a, int *b)
 
 void	ft_sort_int_tab(int *tab, int size)
 {
-	int	*ext;
 	int	*ptr_min;
-	int	control;
-	int	i;
-	int	j;
+	int	round;
+	int	step;
 
-	ext = tab;
 	ptr_min = tab;
-	control = size - 1;
-	i = 0;
-	j = 0;
-
-	while (j < control)
+	step = 0;
+	while (step < size -1)
 	{
-		while (i < size)
+		round = step + 1;
+		while (round < size)
 		{
-			if (tab < ptr_min)
-				ptr_min = tab;
-			i++;
-			tab++;
+			if (tab[round] < *ptr_min)
+				ptr_min = &tab[round];
+			round++;
 		}
-		tab = tab - control - 1;
-		ft_swap(ext, ptr_min);
-		ext++;
-		j++;
+		ft_swap(&tab[step], ptr_min);
+		step++;
 	}
 }
